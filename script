@@ -1,0 +1,18 @@
+#!/usr/bin/env python
+import subprocess
+import os
+
+ret = subprocess.call(r'ps -ef|grep -i "mono TerminalUI.exe" |grep -v "grep"', shell=True)
+if ret == 0:
+    print "success mono TerminalUI.exe"
+    raise SystemExit(1)
+elif ret != 0:
+    print "failure mono TerminalUI.exe"
+    ret = subprocess.call(r'ps -ef|grep -i "mono Terminal.Config.exe" |grep -v "grep"', shell=True)
+    if ret == 0:
+	print "success mono TerminalConfig.exe"
+    elif ret != 0:
+	print "failure mono TerminalConfig.exe and mono TerminalUI.exe"
+	path = "/home/yuri/Programm"
+	os.chdir(path)
+	subprocess.call(r'mono TerminalUI.exe', shell=True)

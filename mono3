@@ -1,0 +1,109 @@
+#!/usr/bin/env python
+
+import subprocess
+ret1 = subprocess.call(r'apt-get install vim apache2 autoconf automake libtool g++ gettext mono-gmcs git apache2-threaded-dev' ,shell=True)
+if ret1 !=0:
+    print "Need install package"
+    raise SystemExit(1)
+else:
+    print "package install already"
+ret1 = subprocess.call(r'mkdir /opt/mono-3.0', shell=True)
+#ret1 = subprocess.call(r'cd /opt/mono-3.0', shell=True)
+#if ret1 !=0:
+#    raise SystemExit(1)
+#ret1 = subprocess.call(r'git clone git://github.com/mono/mono.git', shell=True)
+#if ret1 !=0:
+#    print "I need mono.git"
+#    raise SystemExit(1)
+#else:
+#    print "good clone mono.git"
+#ret1 = subprocess.call(r'git clone git://github.com/mono/xps.git', shell=True)
+#if ret1 !=0:
+#    print "I need xps.git"
+#    raise SystemExit(1)
+#else:
+#    print "good clone xps.git"
+#ret1 = subprocess.call(r'git clone git://github.com/mono/libgdiplus.git', shell=True)
+#if ret1 !=0:
+#    print "I need libgdiplus.git"
+#    raise SystemExit(1)
+#else:
+#    print "good clone libgdiplus.git"
+#ret1 = subprocess.call(r'git clone git://github.com/mono/mod_mono.git', shell=True)
+#if ret1 !=0:
+#    print "I need mod_mono.git"
+#    raise SystemExit(1)
+#else:
+#    print "good clone mod_mono.git"
+#subprocess.call(r'cd /opt/mono-3.0/libgdiplus', shell=True)
+#if ret1 !=0:
+#    print "I need libgdiplus directory"
+#    raise SystemExit(1)
+#subprocess.call(r'./autogen.sh --prefix=/usr', shell=True)
+#if ret1 !=0:
+#    print "No search autogen.sh"
+#    raise SystemExit(1)
+#subprocess.call(r'make', shell=True)
+#if ret1 !=0:
+#    print ""
+#    raise SystemExit(1)
+#subprocess.call(r'make install', shell=True)
+#if ret1 !=0:
+#    print "no install libgdiplus"
+#    raise SystemExit(1)
+subprocess.call(r'cd /opt/mono-3.0/mono', shell=True)
+if ret1 !=0:
+    print "I need mono directory"
+    raise SystemExit(1)
+subprocess.call(r'make clean', shell=True)
+if ret1 !=0:
+    print "clean"
+    raise SystemExit(1)
+subprocess.call(r'./autogen.sh --prefix=/usr', shell=True)
+if ret1 !=0:
+    print "autogen.sh for mono need"
+    raise SystemExit(1)
+subprocess.call(r'make', shell=True)
+if ret1 !=0:
+    print "error make mono"
+    raise SystemExit(1)
+subprocess.call(r'make install', shell=True)
+if ret1 !=0:
+    print " no install mono"
+    raise SystemExit(1)
+#subprocess.call(r'cd /opt/mono-3.0/xsp', shell=True)
+#if ret1 !=0:
+#    print "no directory xsp"
+#    raise SystemExit(1)
+#subprocess.call(r'./autogen.sh --prefix=/usr', shell=True)
+#if ret1 !=0:
+#    print "Need autogen.sh xsp"
+#    raise SystemExit(1)
+#subprocess.call(r'make', shell=True)
+#if ret1 !=0:
+#    print " error make xsp"
+#    raise SystemExit(1)
+#subprocess.call(r'make install', shell=True)
+#if ret1 !=0:
+#    print " error install xsp"
+#    raise SystemExit(1)
+#subprocess.call(r'cd /opt/mono-3.0/mod_mono', shell=True)
+#if ret1 !=0:
+#    print "I need directory mod_mono"
+#    raise SystemExit(1)
+#subprocess.call(r'./autogen.sh --prefix=/usr', shell=True)
+#if ret1 !=0:
+#    print "Need autogen.sh for mod_mono"
+#    raise SystemExit(1)
+#subprocess.call(r'make', shell=True)
+#if ret1 !=0:
+#    print "error make mod_mono"
+#    raise SystemExit(1)
+#subprocess.call(r'make install', shell=True)
+#if ret1 !=0:
+#    print "error install mod_mono"
+#    raise SystemExit(1)
+#subprocess.call(r'', shell=True)
+#if ret1 !=0:
+#    print ""
+#    raise SystemExit(1)
