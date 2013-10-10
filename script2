@@ -1,0 +1,18 @@
+#!/usr/bin/env python
+import subprocess
+import os
+
+ret = subprocess.call(r'ps -ef|grep -i "mono TCPserver.exe" |grep -v "grep"', shell=True)
+if ret == 0:
+    print "success mono TCPserver.exe"
+    raise SystemExit(1)
+elif ret != 0:
+    print "failure mono TCPserver.exe"
+    #ret = subprocess.call(r'ps -ef|grep -i "mono Terminal.Config.exe" |grep -v "grep"', shell=True)
+    #if ret == 0:
+#	print "success mono TerminalConfig.exe"
+#    if ret != 0:
+    #print "failure mono TCPserver.exe"
+    path = "/var/home/berlov/TCP_Server"
+    os.chdir(path)
+    subprocess.call(r'mono TCPserver.exe', shell=True)
