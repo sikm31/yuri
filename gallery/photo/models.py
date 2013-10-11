@@ -1,8 +1,6 @@
-from django.contrib.sites import admin
-from django.db import models
 # -*- coding: utf-8 -*-
 # Create your models here.
-from django.db.models import permalink
+
 
 
 class Item(models.Model):
