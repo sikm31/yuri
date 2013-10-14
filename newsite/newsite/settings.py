@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 # Django settings for newsite project.
+import os.path
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
@@ -111,6 +112,8 @@ ROOT_URLCONF = 'newsite.urls'
 WSGI_APPLICATION = 'newsite.wsgi.application'
 
 TEMPLATE_DIRS = (
+    os.path.join(os.path.dirname(__file__), 'templates').replace('\\','/'),
+    #'/path/to/newsite/templates',
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.

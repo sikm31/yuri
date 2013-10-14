@@ -9,7 +9,7 @@ admin.autodiscover()
 urlpatterns = patterns('',
     # Examples:
     # url(r'^$', 'newsite.views.home', name='home'),
-    # url(r'^newsite/', include('newsite.foo.urls')),
+    url(r'^gallery/', include('gallery.urls', namespace="gallery")),
 
     # Uncomment the admin/doc line below to enable admin documentation:
     # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
