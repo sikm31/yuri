@@ -4,7 +4,7 @@ import MySQLdb
 host = "localhost"
 passwd = "1"
 user = "root"
-dbname = "glossary"
+dbname = "iFriendsDB"
 
 db = MySQLdb.connect(host=host, user=user, passwd=passwd, db=dbname)
 cursor = db.cursor()
