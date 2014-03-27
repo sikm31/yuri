@@ -6,7 +6,7 @@ class Category(models.Model):
     views = models.IntegerField(default=0)
     likes = models.IntegerField(default=0)
 
-    def __unicode__(self):
+    def __str__(self):
         return  self.name
 
     class Meta:
@@ -18,7 +18,7 @@ class Page(models.Model):
     url = models.URLField()
     views = models.IntegerField(default=0)
 
-    def __unicode__(self):
+    def __str__(self):
         return self.title
 
     class Meta:
