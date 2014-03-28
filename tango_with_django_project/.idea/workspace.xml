@@ -4215,7 +4215,7 @@
     </list>
     <ignored path="tango_with_django_project.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/views.py" changelist="7401d16c-6102-4e38-bdc6-669dbc762c22" time="1395926566219" ignored="false" />
+    <file path="/views.py" changelist="7401d16c-6102-4e38-bdc6-669dbc762c22" time="1396021469998" ignored="false" />
     <file path="/urls.py" changelist="7401d16c-6102-4e38-bdc6-669dbc762c22" time="1395927368763" ignored="false" />
     <file path="/settings.py" changelist="7401d16c-6102-4e38-bdc6-669dbc762c22" time="1395303119890" ignored="false" />
     <file path="/index.html" changelist="7401d16c-6102-4e38-bdc6-669dbc762c22" time="1395927479728" ignored="false" />
@@ -4226,11 +4226,12 @@
     <file path="/Dummy.txt" changelist="7401d16c-6102-4e38-bdc6-669dbc762c22" time="1395428236051" ignored="false" />
     <file path="/start_script.py" changelist="7401d16c-6102-4e38-bdc6-669dbc762c22" time="1395418250554" ignored="false" />
     <file path="$PROJECT_DIR$/.idea/vcs.xml" changelist="7401d16c-6102-4e38-bdc6-669dbc762c22" time="1395418277758" ignored="false" />
-    <file path="$PROJECT_DIR$/.idea/workspace.xml" changelist="7401d16c-6102-4e38-bdc6-669dbc762c22" time="1395927747434" ignored="false" />
+    <file path="$PROJECT_DIR$/.idea/workspace.xml" changelist="7401d16c-6102-4e38-bdc6-669dbc762c22" time="1396021482820" ignored="false" />
     <file path="/populate_rango.py" changelist="7401d16c-6102-4e38-bdc6-669dbc762c22" time="1395424191296" ignored="false" />
     <file path="/category.html" changelist="7401d16c-6102-4e38-bdc6-669dbc762c22" time="1395910189640" ignored="false" />
     <file path="/forms.py" changelist="7401d16c-6102-4e38-bdc6-669dbc762c22" time="1395925792134" ignored="false" />
     <file path="/add_category.html" changelist="7401d16c-6102-4e38-bdc6-669dbc762c22" time="1395927233298" ignored="false" />
+    <file path="/add_page.html" changelist="7401d16c-6102-4e38-bdc6-669dbc762c22" time="1396021131980" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -4250,10 +4251,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="views.py" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="views.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/rango/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="66" column="37" selection-start="2244" selection-end="2261" vertical-scroll-proportion="0.0">
+            <state line="73" column="4" selection-start="2458" selection-end="2458" vertical-scroll-proportion="0.8831169">
               <folding />
             </state>
           </provider>
@@ -4271,7 +4272,7 @@
       <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/rango/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="32" column="32" selection-start="1096" selection-end="1096" vertical-scroll-proportion="-9.5">
+            <state line="1" column="1" selection-start="16" selection-end="34" vertical-scroll-proportion="-0.625">
               <folding />
             </state>
           </provider>
@@ -4280,16 +4281,16 @@
       <file leaf-file-name="models.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/rango/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="17" column="27" selection-start="482" selection-end="482" vertical-scroll-proportion="0.0">
+            <state line="14" column="25" selection-start="366" selection-end="366" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="add_category.html" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="add_category.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/rango/add_category.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="25" column="65" selection-start="853" selection-end="853" vertical-scroll-proportion="0.91689754">
+            <state line="9" column="5" selection-start="257" selection-end="280" vertical-scroll-proportion="-5.625">
               <folding />
             </state>
           </provider>
@@ -4298,10 +4299,19 @@
       <file leaf-file-name="forms.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/rango/forms.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="22" column="0" selection-start="757" selection-end="757" vertical-scroll-proportion="0.0">
+            <state line="10" column="24" selection-start="392" selection-end="392" vertical-scroll-proportion="0.0">
               <folding>
                 <element signature="e#20#44#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="add_page.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/rango/add_page.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="9" column="18" selection-start="271" selection-end="271" vertical-scroll-proportion="-5.625">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -4350,7 +4360,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/tango_with_django_project/settings.py" />
         <option value="$PROJECT_DIR$/static/css/base.css.py" />
         <option value="$PROJECT_DIR$/static/css/base.css.html" />
         <option value="$PROJECT_DIR$/static/css/base.css" />
@@ -4360,12 +4369,13 @@
         <option value="$PROJECT_DIR$/populate_rango.py" />
         <option value="$PROJECT_DIR$/rango/admin.py" />
         <option value="$PROJECT_DIR$/rango/models.py" />
-        <option value="$PROJECT_DIR$/rango/forms.py" />
-        <option value="$PROJECT_DIR$/rango/views.py" />
         <option value="$PROJECT_DIR$/rango/urls.py" />
         <option value="$PROJECT_DIR$/templates/rango/index.html" />
         <option value="$PROJECT_DIR$/templates/rango/category.html" />
         <option value="$PROJECT_DIR$/templates/rango/add_category.html" />
+        <option value="$PROJECT_DIR$/templates/rango/add_page.html" />
+        <option value="$PROJECT_DIR$/rango/forms.py" />
+        <option value="$PROJECT_DIR$/rango/views.py" />
       </list>
     </option>
   </component>
@@ -4666,7 +4676,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="10" y="8" width="1004" height="728" extended-state="0" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -4751,13 +4761,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/static/css/base.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file:///usr/local/lib/python3.3/dist-packages/django/conf/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="109" column="0" selection-start="4010" selection-end="4010" vertical-scroll-proportion="0.3323077" />
@@ -4805,39 +4808,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/rango/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="27" selection-start="482" selection-end="482" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/rango/forms.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="0" selection-start="757" selection-end="757" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="e#20#44#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/rango/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="66" column="37" selection-start="2244" selection-end="2261" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/rango/urls.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="7" column="60" selection-start="305" selection-end="305" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/rango/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="32" column="32" selection-start="1096" selection-end="1096" vertical-scroll-proportion="-9.5">
           <folding />
         </state>
       </provider>
@@ -4856,9 +4829,46 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/templates/rango/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1" column="1" selection-start="16" selection-end="34" vertical-scroll-proportion="-0.625">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/templates/rango/add_category.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="25" column="65" selection-start="853" selection-end="853" vertical-scroll-proportion="0.91689754">
+        <state line="9" column="5" selection-start="257" selection-end="280" vertical-scroll-proportion="-5.625">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/rango/add_page.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="18" selection-start="271" selection-end="271" vertical-scroll-proportion="-5.625">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/rango/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="14" column="25" selection-start="366" selection-end="366" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/rango/forms.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="24" selection-start="392" selection-end="392" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="e#20#44#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/rango/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="73" column="4" selection-start="2458" selection-end="2458" vertical-scroll-proportion="0.8831169">
           <folding />
         </state>
       </provider>

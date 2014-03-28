@@ -6,6 +6,7 @@ from django.http import HttpResponse
 from rango.models import Category
 from rango.models import Page
 from rango.forms import CategoryForm
+from rango.forms import PageForm
 
 #def index(request):
 #    context = RequestContext(request)
@@ -65,3 +66,9 @@ def add_category(request):
         form = CategoryForm()
 
     return render_to_response('rango/add_category.html', {'form': form}, context)
+
+def add_page(request, category_name_url):
+    context = RequestContext(request)
+
+    category_name = decode_url(category_name_url)
+    
