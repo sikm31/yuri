@@ -40,7 +40,7 @@ def category(request, category_name_url):
     context = RequestContext(request)
     #category_name = category_name_url.replace('_', ' ')
     category_name = decode_url(category_name_url)
-    context_dict = {'category_name': category_name}
+    context_dict = {'category_name': category_name, 'category_name_url': category_name_url}
     try:
         category = Category.objects.get(name=category_name)
         pages = Page.objects.filter(category=category).order_by('-views')
@@ -93,4 +93,7 @@ def add_page(request, category_name_url):
     else:
         form = PageForm()
 
-    return render_to_response()
+    return render_to_response( 'rango/add_page.html',
+            {'category_name_url': category_name_url,
+             'category_name': category_name, 'form': form},
+             context)
