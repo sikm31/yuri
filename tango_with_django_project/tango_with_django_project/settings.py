@@ -18,6 +18,7 @@ TEMPLATE_PATH = os.path.join(PROJECT_PATH, 'templates')
 STATIC_PATH = os.path.join(PROJECT_PATH,'static')
 DATABASE_PATH = os.path.join(PROJECT_PATH, 'rango.db')
 MEDIA_ROOT = os.path.join(PROJECT_PATH, 'media')
+LOGIN_URL = '/rango/login/'
 
 STATICFILES_DIRS = (
     STATIC_PATH,

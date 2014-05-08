@@ -4,7 +4,7 @@
     <data-source source="LOCAL" name="Django default" uuid="1a479061-c9b3-42c4-8bc7-590782d7e914">
       <driver-ref>sqlite.xerial</driver-ref>
       <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
-      <jdbc-url>jdbc:sqlite:D:\project\tango_with_django_project\tango_with_django_project\..\rango.db</jdbc-url>
+      <jdbc-url>jdbc:sqlite:D:\github\yuri\tango_with_django_project\tango_with_django_project\..\rango.db</jdbc-url>
       <libraries>
         <library>
           <url>file://$USER_HOME$/.PyCharm20/config/jdbc-drivers/xerial-sqlite-license.txt</url>
