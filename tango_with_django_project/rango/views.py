@@ -30,16 +30,21 @@ def index(request):
     page_list = Page.objects.order_by('-views')[:5]
     context_dict = {'categories': category_list, 'pages': page_list}
 
+    #if request.session.test_cookie_worked():
+    #    print (">>>> TEST COOKIE WORKED!")
+     #   request.session.delete_test_cookie()
     #for category in category_list:
     #    category.url = category.name.replace(' ','_')
     for category in category_list:
         category.url = encode_url(category.name)
     return  render_to_response('rango/index.html', context_dict, context)
 
+
 def about(request):
     context = RequestContext(request)
-    context_dict = {'aboutmessage': "Here is the about page"}
-    return  render_to_response('rango/about.html', context_dict, context)
+    #context_dict = {'aboutmessage': "Here is the about page"}
+    return  render_to_response('rango/about.html', {}, context)
+    #return HttpResponse('Rango says: Here is the about page. <a href="/rango/">Index</a>')
 
 def category(request, category_name_url):
     context = RequestContext(request)
@@ -213,7 +218,10 @@ def user_login(request):
 
 @login_required
 def restricted(request):
-    return HttpResponse("Since you're logged in, you can see this text!")
+    #return HttpResponse("Since you're logged in, you can see this text!")
+    context = RequestContext(request)
+    #context_dict = {'aboutmessage': "Here is the about page"}
+    return  render_to_response('rango/restricted.html', {}, context)
 
 # Use the login_required() decorator to ensure only those logged in can access the view.
 @login_required
