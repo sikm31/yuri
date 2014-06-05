@@ -12,6 +12,7 @@ from django.contrib.auth import authenticate, login
 from django.http import HttpResponseRedirect, HttpResponse
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import logout
+from datetime import datetime
 
 #def index(request):
 #    context = RequestContext(request)
@@ -24,26 +25,92 @@ def encode_url(str):
 def decode_url(str):
     return str.replace('_', ' ')
 
+def get_category_list():
+    cat_list = Category.objects.all()
+
+    for cat in cat_list:
+        cat.url = encode_url(cat.name)
+
+    return cat_list
+
 def index(request):
     context = RequestContext(request)
-    category_list = Category.objects.order_by('-likes')[:5]
+    category_list = Category.objects.all()
+    cat_list = get_category_list()
+    context_dict = {'categories': category_list}
+    context_dict['cat_list'] = cat_list
+    for category in category_list:
+        category.url = encode_url(category.name)
+
     page_list = Page.objects.order_by('-views')[:5]
-    context_dict = {'categories': category_list, 'pages': page_list}
+    context_dict['pages'] = page_list
+
+    #### NEW CODE ####
+    if request.session.get('last_visit'):
+        # The session has a value for the last visit
+        last_visit_time = request.session.get('last_visit')
+        visits = request.session.get('visits', 0)
+
+        if (datetime.now() - datetime.strptime(last_visit_time[:-7], "%Y-%m-%d %H:%M:%S")).days > 0:
+            request.session['visits'] = visits + 1
+            request.session['last_visit'] = str(datetime.now())
+    else:
+        # The get returns None, and the session does not have a value for the last visit.
+        request.session['last_visit'] = str(datetime.now())
+        request.session['visits'] = 1
+    # Obtain our Response object early so we can add cookie information.
+    return render_to_response('rango/index.html', context_dict, context)
+    #category_list = Category.objects.order_by('-likes')[:5]
+    #page_list = Page.objects.order_by('-views')[:5]
+    #context_dict = {'categories': category_list, 'pages': page_list}
 
     #if request.session.test_cookie_worked():
     #    print (">>>> TEST COOKIE WORKED!")
      #   request.session.delete_test_cookie()
     #for category in category_list:
     #    category.url = category.name.replace(' ','_')
-    for category in category_list:
-        category.url = encode_url(category.name)
-    return  render_to_response('rango/index.html', context_dict, context)
+    #for category in category_list:
+    #    category.url = encode_url(category.name)
+    #return  render_to_response('rango/index.html', context_dict, context)
+    # Get the number of visits to the site.
+    # We use the COOKIES.get() function to obtain the visits cookie.
+    # If the cookie exists, the value returned is casted to an integer.
+    # If the cookie doesn't exist, we default to zero and cast that.
+    #visits = int(request.COOKIES.get('visits', '0'))
+
+    # Does the cookie last_visit exist?
+    #if 'last_visit' in request.COOKIES:
+        # Yes it does! Get the cookie's value.
+     #   last_visit = request.COOKIES['last_visit']
+        # Cast the value to a Python date/time object.
+     #   last_visit_time = datetime.strptime(last_visit[:-7], "%Y-%m-%d %H:%M:%S")
+
+        # If it's been more than a day since the last visit...
+      #  if (datetime.now() - last_visit_time).days > 0:
+            # ...reassign the value of the cookie to +1 of what it was before...
+       #     response.set_cookie('visits', visits+1)
+            # ...and update the last visit cookie, too.
+        #    response.set_cookie('last_visit', datetime.now())
+    #else:
+        # Cookie last_visit doesn't exist, so create it to the current date/time.
+     #   response.set_cookie('last_visit', datetime.now())
+
+    # Return response back to the user, updating any cookies that need changed.
+    #return response
 
 
 def about(request):
     context = RequestContext(request)
     #context_dict = {'aboutmessage': "Here is the about page"}
-    return  render_to_response('rango/about.html', {}, context)
+    category_list = Category.objects.all()
+    cat_list = get_category_list()
+    if request.session.get('visits'):
+        count = request.session.get('visits')
+    else:
+        count = 0
+    context_dict = {'categories': category_list, 'visits':count}
+    context_dict['cat_list'] = cat_list
+    return  render_to_response('rango/about.html', context_dict, context)
     #return HttpResponse('Rango says: Here is the about page. <a href="/rango/">Index</a>')
 
 def category(request, category_name_url):
@@ -51,6 +118,8 @@ def category(request, category_name_url):
     #category_name = category_name_url.replace('_', ' ')
     category_name = decode_url(category_name_url)
     context_dict = {'category_name': category_name, 'category_name_url': category_name_url}
+    cat_list = get_category_list()
+    context_dict['cat_list'] = cat_list
     try:
         category = Category.objects.get(name=category_name)
         pages = Page.objects.filter(category=category).order_by('-views')
@@ -113,7 +182,10 @@ def add_page(request, category_name_url):
 def register(request):
     # Like before, get the request's context.
     context = RequestContext(request)
-
+    category_list = Category.objects.all()
+    cat_list = get_category_list()
+    context_dict = {'categories': category_list}
+    context_dict['cat_list'] = cat_list
     # A boolean value for telling the template whether the registration was successful.
     # Set to False initially. Code changes value to True when registration succeeds.
     registered = False
@@ -167,13 +239,17 @@ def register(request):
     # Render the template depending on the context.
     return render_to_response(
             'rango/register.html',
-            {'user_form': user_form, 'profile_form': profile_form, 'registered': registered},
+            {'user_form': user_form, 'profile_form': profile_form, 'registered': registered, 'cat_list': cat_list},
             context)
 
 def user_login(request):
     # Like before, obtain the context for the user's request.
     context = RequestContext(request)
     context_dict = {}
+    category_list = Category.objects.all()
+    cat_list = get_category_list()
+    context_dict = {'categories': category_list}
+    context_dict['cat_list'] = cat_list
 
 
     # If the request is a HTTP POST, try to pull out the relevant information.
@@ -231,3 +307,4 @@ def user_logout(request):
 
     # Take the user back to the homepage.
     return HttpResponseRedirect('/rango/')
+
