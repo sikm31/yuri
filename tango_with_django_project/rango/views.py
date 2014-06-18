@@ -3,16 +3,18 @@ from django.template import RequestContext
 from django.shortcuts import render_to_response
 # Create your views here.
 from django.http import HttpResponse
-from rango.models import Category
+from rango.models import Category, UserProfile
 from rango.models import Page
 from rango.forms import CategoryForm
 from rango.forms import PageForm
 from rango.forms import UserForm, UserProfileForm
+from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login
 from django.http import HttpResponseRedirect, HttpResponse
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import logout
 from datetime import datetime
+
 
 #def index(request):
 #    context = RequestContext(request)
@@ -113,7 +115,8 @@ def about(request):
     return  render_to_response('rango/about.html', context_dict, context)
     #return HttpResponse('Rango says: Here is the about page. <a href="/rango/">Index</a>')
 
-def category(request, category_name_url):
+"""
+    def category(request, category_name_url):
     context = RequestContext(request)
     #category_name = category_name_url.replace('_', ' ')
     category_name = decode_url(category_name_url)
@@ -127,6 +130,26 @@ def category(request, category_name_url):
         context_dict['category'] = category
     except Category.DoesNotExist:
         pass
+
+    return render_to_response('rango/category.html', context_dict, context)
+"""
+def category(request, category_name_url):
+    context = RequestContext(request)
+    cat_list = get_category_list()
+    category_name = decode_url(category_name_url)
+
+    context_dict = {'cat_list': cat_list, 'category_name': category_name, 'category_name_url': category_name_url}
+
+    try:
+            category = Category.objects.get(name=category_name)
+
+            # Add category to the context so that we can access the id and likes
+            context_dict['category'] = category
+
+            pages = Page.objects.filter(category=category)
+            context_dict['pages'] = pages
+    except Category.DoesNotExist:
+            pass
 
     return render_to_response('rango/category.html', context_dict, context)
 
@@ -308,3 +331,33 @@ def user_logout(request):
     # Take the user back to the homepage.
     return HttpResponseRedirect('/rango/')
 
+@login_required
+def profile(request):
+    context = RequestContext(request)
+    cat_list = get_category_list()
+    context_dict = {'cat_list': cat_list}
+    u = User.objects.get(username=request.user)
+    try:
+        up = UserProfile.objects.get(user=u)
+    except:
+        up = None
+    context_dict['user'] = u
+    context_dict['userprofile'] = up
+    return render_to_response('rango/profile.html', context_dict, context)
+
+@login_required
+def like_category(request):
+    context = RequestContext(request)
+    cat_id = None
+    if request.method == 'GET':
+        cat_id = request.GET['category_id']
+
+    likes = 0
+    if cat_id:
+        category = Category.objects.get(id=int(cat_id))
+        if category:
+            likes = category.likes + 1
+            category.likes =  likes
+            category.save()
+
+    return HttpResponse(likes)
